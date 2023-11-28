@@ -1,0 +1,4 @@
+superuser:mahmoud        password:123456
+user:ehab                password:mah123456
+user:ehab_mahmoud        password:mah123456
+user:mahmoud_ehab        password:mah123456 

@@ -1,0 +1,30 @@
+{% extends 'home/layout/Adbase.html'%}
+
+{% load static %}
+
+{% block title%}{{books.name}}{% endblock %}
+
+{% block body %}
+{% if user.is_staff%}
+<div class="card" style="width: 18rem;">
+    <img src="{{books.get_image_url}}" class="card-img-top">
+    <div class="card-body">
+        <h5 class="card-title">name:{{books.name}}</h5>
+        <p class="card-text">description:{{books.description}}</p>
+        <p class="card-text">added at:{{books.created_at}}</p>
+        <a href="{% url 'books'%}" class="btn btn-primary">back</a>
+        <a href="{{books.get_delete_url}}" class="btn btn-primary">delete</a>
+    </div>
+</div>
+{% else %}
+<div class="card" style="width: 18rem;">
+    <img src="{{books.get_image_url}}" class="card-img-top">
+    <div class="card-body">
+        <h5 class="card-title">name:{{books.name}}</h5>
+        <p class="card-text">description:{{books.description}}</p>
+        <p class="card-text">added at:{{books.created_at}}</p>
+        <a href="{% url 'books'%}" class="btn btn-primary">back</a>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

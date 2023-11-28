@@ -1,0 +1,21 @@
+{% extends 'home/layout/Adbase.html'%}
+
+{% load static %}
+
+{% block title%}users{% endblock %}
+
+{% block body %}
+<div style="display: inline;">
+{% for u in user %}
+{% if u.is_staff %}
+{% else %}
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">id: {{u.id}}</h5>
+      <h5 class="card-title">user name:{{u.username}}</h5>
+    </div>
+  </div>
+{% endif %}
+{% endfor %}
+</div>
+{% endblock %}
